@@ -1,0 +1,271 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: #1a1a2e;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #1a24e2;
+}
+.logo { font-size: 22px; font-weight: bold; color: #fff; letter-spacing: 1px; }
+.logo span { color: #1a24e2; }
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+nav a:hover { color: #1a24e2; }
+
+.cart-btn {
+  background: #1a24e2;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.cart-count {
+  background: #fff;
+  color: #1a24e2;
+  border-radius: 50%;
+  width: 18px; height: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+.hero h1 { font-size: 36px; margin-bottom: 1rem; }
+.hero h1 span { color: #1a24e2; }
+.hero p { font-size: 16px; color: #aaa; max-width: 480px; margin: 0 auto 1.5rem; }
+.hero-btn {
+  background: #1a24e2;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.hero-btn:hover { background: #1a24e2; }
+
+/* ===== SEÇÃO PRODUTOS ===== */
+.section { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+.section-title { font-size: 22px; font-weight: bold; margin-bottom: 1.25rem; }
+.section-title span { color: #1a24e2; }
+
+/* ===== FILTROS ===== */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.filter-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: #1a24e2;
+  color: #fff;
+  border-color: #1a24e2;
+}
+
+/* ===== GRID DE PRODUTOS ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.product-img {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+}
+
+.product-info { padding: 12px; }
+.product-cat {
+  font-size: 11px;
+  color: #1a24e2;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.badge {
+  background: #22c55e;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.product-name { font-size: 14px; font-weight: bold; margin-bottom: 6px; color: #222; }
+.product-desc { font-size: 12px; color: #777; margin-bottom: 10px; line-height: 1.5; }
+
+.product-footer { display: flex; align-items: center; justify-content: space-between; }
+.product-price { font-size: 16px; font-weight: bold; color: #1a24e2; }
+.add-btn {
+  background: #1a24e2;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-btn:hover { background: #1a24e2; }
+
+/* ===== CARRINHO LATERAL ===== */
+.cart-panel {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: 320px; height: 100%;
+  background: #fff;
+  border-left: 1px solid #e5e5e5;
+  padding: 1.5rem;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+}
+.cart-panel.open { display: block; }
+.cart-panel h3 { font-size: 18px; font-weight: bold; margin-bottom: 1rem; }
+.close-cart { float: right; cursor: pointer; font-size: 20px; color: #999; }
+.close-cart:hover { color: #1a24e2; }
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+.cart-item-name { flex: 1; color: #222; }
+.cart-item-price { color: #1a24e2; font-weight: bold; margin: 0 10px; white-space: nowrap; }
+.remove-btn { color: #aaa; cursor: pointer; font-size: 16px; }
+.remove-btn:hover { color: #1a24e2; }
+
+.cart-total {
+  margin-top: 1rem;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  text-align: right;
+}
+
+/* ===== BOTÃO WHATSAPP ===== */
+.whatsapp-btn {
+  width: 100%;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.whatsapp-btn:hover { background: #1ebe5d; }
+
+.whatsapp-info {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.empty-cart { color: #aaa; font-size: 14px; text-align: center; padding: 2rem 0; }
+
+/* ===== TOAST (NOTIFICAÇÃO) ===== */
+.toast {
+  position: fixed;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #22c55e;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  z-index: 200;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ===== SOBRE ===== */
+.sobre-section {
+  background: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.sobre-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.sobre-item { max-width: 180px; text-align: center; }
+.sobre-item .icone { font-size: 36px; margin-bottom: 8px; }
+.sobre-item strong { display: block; margin-bottom: 4px; }
+.sobre-item p { font-size: 13px; color: #777; }
+
+/* ===== RODAPÉ ===== */
+footer {
+  background: #1a1a2e;
+  color: #aaa;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 13px;
+  margin-top: 3rem;
+}
+footer span { color: #1a24e2; }
